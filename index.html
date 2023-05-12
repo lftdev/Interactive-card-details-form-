@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+<body>
+  <div class="banner">
+    <div class="card back-card">
+      <div class="card-band"></div>
+      <div class="card-cvc">000</div>
+    </div>
+    <div class="card front-card flex-container">
+      <img src="./images/card-logo.svg" alt="card logo">
+      <div class="card-data flex-container">
+        <span class="card-number">0000 0000 0000 0000</span>
+        <div class="flex-container">
+          <span class="card-holder">Cardholder name</span>
+          <span class="card-exp">00/00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="section-form">
+    <form>
+      <div class="form-row">
+        <label for="card-holder-name">CARDHOLDER NAME</label>
+        <input placeholder="e.g. Jane Appleseed" id="card-holder-name" type="text">
+      </div>
+      <div class="form-row">
+        <label for="card-number">CARD NUMBER</label>
+        <input placeholder="e.g. 1234 5678 9123 0000" id="card-number" type="number">
+      </div>
+      <div class="form-row">
+        <label for="exp-month">EXP. DATE (MM/YY)</label>
+        <fieldset class="flex-container">
+          <input placeholder="MM" id="exp-month" type="number">
+          <input placeholder="YY" id="exp-year" type="number">
+        </fieldset>
+        <label for="card-cvc">CVC</label>
+        <input placeholder="e.g. 123" id="card-cvc" type="number" min="100" max="999">
+      </div>
+      <div class="form-row">
+        <input type="submit" value="Confirm">
+      </div>
+    </form>
+    <div class="completed-form-state">
+      <h1>Thank you!</h1>
+      <p>We've added your card details</p>
+      <button>Continue</button>
+    </div>
+  </section>
+<footer>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</footer>
+</body>
+</html>

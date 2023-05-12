@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-family: 'Space Grotesk', sans-serif;
+}
+button, input[type='submit'] {
+    font-family: inherit;
+}
+img {
+    max-width: 100%;
+}
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

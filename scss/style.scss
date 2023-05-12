@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+$color1: hsl(270, 3%, 87%);
+$color2: hsl(279, 6%, 55%);
+$color3: hsl(278, 68%, 11%);
+
+@mixin set-size($width: initial, $height: initial) {
+    width: $width;
+    height: $height;
+}
+
+@import './partials/structure';
+@import './partials/index';
+@import './partials/media-queries';

@@ -1,0 +1,77 @@
+div {
+    & + section {
+        margin-top: 60px;
+        padding: 30px;
+    }
+    &.banner {
+        background: url(../images/bg-main-mobile.png);
+        height: 240px;
+    }
+    &.card {
+        @include set-size(300px, 170px);
+        border-radius: 10px;
+        &.back-card {
+            background: linear-gradient(145deg, rgba(222,221,223,1) 41%, rgba(140,133,147,1) 100%);
+            position: relative;
+            left: 90px;
+            .card-band {
+                @include set-size(100%, 20%);
+                position: relative;
+                top: 20px;
+                background-color: $color3;
+            }
+            .card-cvc {
+                @include set-size(80%, 15%);
+                position: relative;
+                top: 40px;
+                margin: 0 auto;
+                border-radius: 5px;
+                background-color: $color2;
+                color: $color1;
+                text-align: right;
+            }
+        }
+        &.front-card {
+            background: url(../images/bg-card-front.png) center center no-repeat;
+            color: white;
+            position: absolute;
+            padding: 0 20px;
+            top: 100px;
+            left: 5%;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+            &.flex-container {
+                flex-direction: column;
+                justify-content: space-around;
+            }
+    }
+        .card-data {
+            width: 100%;
+            &.flex-container {
+                flex-direction: column;
+                justify-content: space-around;
+                gap: 10px;
+            }
+            .card-number {
+                font-size: 20px;
+                text-align: justify;
+                letter-spacing: 1.4px;
+            }
+            .flex-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+section {
+    &.section-form {
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
