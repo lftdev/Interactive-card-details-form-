@@ -3,22 +3,36 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    height: 100%;
+}
 body {
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 300;
 }
-button, input {
+a {
+    color: $color3;
+    font-weight: $bold-font;
+    text-decoration: none;
+}
+input {
     font-family: 'Space Grotesk', sans-serif;    
     font-weight: 300;
+    [type="submit"]:hover {
+        cursor: pointer;
+    }
 }
 img {
     max-width: 100%;
 }
 footer {
-    position: absolute;
-    bottom: 0;
+    &.flex-container {
+        justify-content: center;
+        align-items: flex-end;
+    }
 }
 .flex-container {
     display: flex;

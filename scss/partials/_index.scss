@@ -1,10 +1,10 @@
 div {
     & + section {
-        margin-top: 45px;
         padding: 30px;
     }
     &.banner {
-        background: url(../images/bg-main-mobile.png);
+        background: url(../images/bg-main-mobile.png) center center no-repeat;
+        background-size: cover;
         height: 240px;
     }
     &.card {
@@ -66,6 +66,10 @@ div {
 }
 section {
     &.section-form {
+        &.flex-container {
+            flex-direction: column;
+            justify-content: flex-end;
+        }
         form {
             display: grid;
             grid-template-columns: 1fr;
