@@ -1,38 +1,37 @@
-div {
+.banner {
+    background: url(../images/bg-main-mobile.png) center center no-repeat;
+    background-size: cover;
+    height: 240px;
+    &.flex-container {
+        justify-content: flex-end;
+    }
     & + section {
+        margin-top: 60px;
         padding: 30px;
+
     }
-    &.banner {
-        background: url(../images/bg-main-mobile.png) center center no-repeat;
-        background-size: cover;
-        height: 240px;
-    }
-    &.card {
+    .card {
         @include set-size(300px, 170px);
         border-radius: 10px;
+        transition: all .3s;
         &.back-card {
-            background: linear-gradient(145deg, rgba(222,221,223,1) 41%, rgba(140,133,147,1) 100%);
-            position: relative;
-            left: 90px;
-            .card-band {
-                @include set-size(100%, 20%);
-                position: relative;
-                top: 20px;
-                background-color: #222222;
-            }
+            background: url(../images/bg-card-back.png) center center no-repeat;
+            background-size: cover;
             .card-cvc {
-                @include set-size(80%, 15%);
-                position: relative;
-                top: 40px;
-                margin: 0 auto;
-                border-radius: 5px;
-                background-color: $color2;
-                color: $color1;
-                text-align: right;
+                margin-right: 30px;
+                height: 100%;
+                color: white;
+                font-weight: bold;
+                &.flex-container {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+                }
             }
         }
         &.front-card {
-            background: url(../../images/bg-card-front.png) center center no-repeat;
+            background: url(../images/bg-card-front.png) center center no-repeat;
+            background-size: cover;
             color: white;
             position: absolute;
             padding: 0 20px;
@@ -44,7 +43,7 @@ div {
                 flex-direction: column;
                 justify-content: space-around;
             }
-    }
+        }
         .card-data {
             width: 100%;
             &.flex-container {
@@ -68,12 +67,14 @@ section {
     &.section-form {
         &.flex-container {
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: flex-start;
+            align-items: center;
         }
         form {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
+            max-width: 400px;
             label {
                 font-weight: $bold-font;
             }
