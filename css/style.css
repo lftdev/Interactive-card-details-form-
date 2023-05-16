@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -9,14 +9,21 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   font-family: "Space Grotesk", sans-serif;
+  font-weight: 300;
 }
 
-button, input[type=submit] {
-  font-family: inherit;
+button, input {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 300;
 }
 
 img {
   max-width: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }
 
 .flex-container {
@@ -26,7 +33,7 @@ img {
 }
 
 div + section {
-  margin-top: 60px;
+  margin-top: 45px;
   padding: 30px;
 }
 div.banner {
@@ -48,7 +55,7 @@ div.card.back-card .card-band {
   height: 20%;
   position: relative;
   top: 20px;
-  background-color: hsl(278, 68%, 11%);
+  background-color: #222222;
 }
 div.card.back-card .card-cvc {
   width: 80%;
@@ -62,12 +69,13 @@ div.card.back-card .card-cvc {
   text-align: right;
 }
 div.card.front-card {
-  background: url(../images/bg-card-front.png) center center no-repeat;
+  background: url(../../images/bg-card-front.png) center center no-repeat;
   color: white;
   position: absolute;
   padding: 0 20px;
   top: 100px;
   left: 5%;
+  font-weight: 500;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
 }
 div.card.front-card.flex-container {
@@ -97,8 +105,44 @@ section.section-form form {
   grid-template-columns: 1fr;
   gap: 20px;
 }
+section.section-form form label {
+  font-weight: 500;
+}
 section.section-form form input {
   width: 100%;
+  border-radius: 10px;
+}
+section.section-form form input.input-field {
+  padding: 15px;
+  font-size: 1.1rem;
+  border: 1px solid hsl(279, 6%, 55%);
+}
+section.section-form form input.input-field:focus {
+  border: none;
+  border-image: linear-gradient(to right, #f00, #00f);
+  border-image-slice: 1;
+}
+section.section-form form input[type=submit] {
+  background: hsl(278, 68%, 11%);
+  padding: 15px;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+section.section-form form .form-row:nth-of-type(3) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+}
+section.section-form form .form-row:nth-of-type(3) fieldset {
+  border: none;
+  grid-row-start: 2;
+}
+section.section-form form .form-row:nth-of-type(3) fieldset.flex-container {
+  gap: 10px;
+}
+section.section-completed-form-state {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
