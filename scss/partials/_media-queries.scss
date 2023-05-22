@@ -17,11 +17,11 @@
         .card {
             &.back-card {
                 position: absolute;
-                top: 55%;
+                top: 65%;
                 left: 5%;
             }
             &.front-card {
-                top: 15%;
+                top: 10%;
             }
         }
     }
@@ -43,18 +43,28 @@
         }
     }
 }
-@media (min-width: 930px) and (min-height: 620px) {
+@media (min-width: 930px) and (min-height: 500px) {
     .banner {
         .card {
             @include set-size(400px, 245px);
             &.back-card {
                 left: 0;
+                top: 50%;
                 .card-cvc {
                     margin-right: 40px;
                 }
             }
             &.front-card {
+                top: 0;
                 left: 0;
+            }
+            .card-data {
+                .card-number {
+                    letter-spacing: 7px;
+                }
+                &.flex-container {
+                    gap: 30px;
+                }
             }
         }
     }
@@ -64,10 +74,9 @@
         }
     }  
 }
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (min-height: 600px) {
     .banner {
         .card {
-            @include set-size(400px, 245px);
             &.back-card {
                 left: 15%;
             }

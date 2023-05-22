@@ -1,63 +1,64 @@
-//const CARD_NUMBER_REGEX = /(\d{4})(?=\d|$)/g
 const REGEX = {
   CARDHOLDER: /^[a-zA-Z ]+$/g,
-  CARD_NUMBER: /^\d{16}$/g,
+  CARD_NUMBER: /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/,
   EXP_DATE: /^\d{2}$/
 }
 
-const card_number = document.querySelector('div.card-number')
+const cardholder_text = document.querySelector('span.cardholder')
+const card_number_text = document.querySelector('div.card-number')
+const card_exp_text = document.querySelector('span.card-exp')
+const card_cvc_text = document.querySelector('span.card-cvc')
+
+const refreshCardHolder = event => cardholder_text.innerHTML = event.target.value
+const refreshCardNumber = event => {
+  const value = event.target.value
+  if (value.length <= 16)
+    card_number_text.innerHTML = value.replace(/(\d{4})/g, '$1 ')
+}
+const refreshExpDate = (event, input) => {
+  const target = event.target
+  const text = card_exp_text.innerHTML
+  let value = target.value
+  let length = value.length
+  if ((length != 2) && (length != 0))
+    value = value.replace(/^(\d).*$/, '0$1')
+  else if (length == 0)
+    value = '00'
+  if (input.name === 'exp-month')
+    card_exp_text.innerHTML = text.replace(/(\d{2}\/)/, value + '/')
+  else
+    card_exp_text.innerHTML = text.replace(/(\/\d{2})/, '/' + value)
+}
+
+const refreshCVC = event => {
+  const value = event.target.value
+  if (value.length <= 4)
+    card_cvc_text.innerHTML = value
+}
 
 const inputs = document.querySelectorAll('form .input-field')
-const invalid_inputs_p = document.querySelectorAll('form p.invalid-input')
-const form = document.getElementById('form-payment')
-
-const validateInput = event => {
-  const target = event.target
-  let index
-  switch (target.name) {
+inputs.forEach(input => {
+  switch (input.name) {
     case 'cardholder':
-      index = 0
-      if (target.value.match(REGEX.CARDHOLDER) == null)
-        onWrongInput(target, index, 'Invalid name.')
-      else onCorrectInput(target, index)
-    break;
+      input.addEventListener('input', refreshCardHolder)
+      break
     case 'card-number':
-      index = 1
-      if (target.value.match(REGEX.CARD_NUMBER) == null)
-        onWrongInput(target, index, 'The card number must have 16 digits.')
-      else onCorrectInput(target, index)
-    break;
+      input.addEventListener('input', refreshCardNumber)
+      break
     case 'exp-month':
     case 'exp-year':
-      index = 2
-      if (target.value.match(REGEX.EXP_DATE) == null)
-        onWrongInput(target, index, 'The date format is not correct.')
-      else onCorrectInput(target, index)
+      input.addEventListener('input', event => {
+        refreshExpDate(event, input)
+      })
+      break
+    case 'card-cvc':
+      input.addEventListener('input', refreshCVC)
   }
-}
-
-const refreshGraphics = async () => {
-  
-}
-
-inputs.forEach(input => {
-  input.addEventListener('keyup', () => {
-    refreshGraphics()
-    validateInput()
-  })
-  input.addEventListener('blur', validateInput)
 })
+const invalid_inputs_p = document.querySelectorAll('form p.invalid-input')
 
+
+const form = document.getElementById('form-payment')
 form.addEventListener('submit', event => {
   event.preventDefault()
 })
-
-function onWrongInput(target, index, msg) {
-  target.classList.add('invalid-input')
-  invalid_inputs_p[index].innerHTML = msg
-}
-
-function onCorrectInput(target, index) {
-  target.classList.remove('invalid-input')
-  invalid_inputs_p[index].innerHTML = ''
-}

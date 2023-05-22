@@ -99,13 +99,16 @@ footer.flex-container {
 }
 .banner .card .card-data.flex-container {
   flex-direction: column;
-  justify-content: space-around;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 15px;
 }
 .banner .card .card-data .card-number {
   font-size: 20px;
   text-align: justify;
   letter-spacing: 1.4px;
+}
+.banner .card .card-data .cardholder {
+  text-transform: uppercase;
 }
 .banner .card .card-data .flex-container {
   width: 100%;
@@ -139,6 +142,9 @@ section.section-form form input.input-field:focus {
   border: none;
   border-image: linear-gradient(to right, #f00, #00f);
   border-image-slice: 1;
+}
+section.section-form form input.input-field.invalid-input {
+  border: 2px solid hsl(0, 100%, 66%);
 }
 section.section-form form input[type=submit] {
   background: hsl(278, 68%, 11%);
@@ -180,11 +186,11 @@ section.section-completed-form-state {
   }
   .banner .card.back-card {
     position: absolute;
-    top: 55%;
+    top: 65%;
     left: 5%;
   }
   .banner .card.front-card {
-    top: 15%;
+    top: 10%;
   }
   section.section-form.flex-container {
     justify-content: flex-end;
@@ -200,29 +206,33 @@ section.section-completed-form-state {
     justify-content: flex-end;
   }
 }
-@media (min-width: 930px) and (min-height: 620px) {
+@media (min-width: 930px) and (min-height: 500px) {
   .banner .card {
     width: 400px;
     height: 245px;
   }
   .banner .card.back-card {
     left: 0;
+    top: 50%;
   }
   .banner .card.back-card .card-cvc {
     margin-right: 40px;
   }
   .banner .card.front-card {
+    top: 0;
     left: 0;
+  }
+  .banner .card .card-data .card-number {
+    letter-spacing: 7px;
+  }
+  .banner .card .card-data.flex-container {
+    gap: 30px;
   }
   section.section-form.flex-container {
     align-items: center;
   }
 }
-@media (min-width: 1200px) {
-  .banner .card {
-    width: 400px;
-    height: 245px;
-  }
+@media (min-width: 1200px) and (min-height: 600px) {
   .banner .card.back-card {
     left: 15%;
   }
