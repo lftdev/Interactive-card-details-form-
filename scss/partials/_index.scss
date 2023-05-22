@@ -48,13 +48,16 @@
             width: 100%;
             &.flex-container {
                 flex-direction: column;
-                justify-content: space-around;
-                gap: 10px;
+                justify-content: space-between;
+                gap: 15px;
             }
             .card-number {
                 font-size: 20px;
                 text-align: justify;
                 letter-spacing: 1.4px;
+            }
+            .cardholder {
+                text-transform: uppercase;
             }
             .flex-container {
                 width: 100%;
@@ -89,6 +92,9 @@ section {
                         border: none;
                         border-image: linear-gradient(to right, #f00, #00f);
                         border-image-slice: 1;
+                    }
+                    &.invalid-input {
+                        border: 2px solid $color4
                     }
                 }
                 &[type="submit"] {
