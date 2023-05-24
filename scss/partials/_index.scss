@@ -105,16 +105,36 @@ section {
                     font-weight: bold;
                 }
             }
+            p {
+                display: none;
+                color: $color4;
+                font-weight: $bold-font;
+                &.invalid-input {
+                    display: block
+                }
+            }
             .form-row:nth-of-type(3) {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 column-gap: 15px;
                 fieldset {
                     border: none;
-                    grid-row-start: 2;
+                    grid-row-start: 1;
                     &.flex-container {
                         gap: 10px;
                     }
+                    legend {
+                        font-weight: $bold-font;
+                    }
+                }
+                label {
+                    grid-row: 1;
+                }
+                input {
+                    grid-row: 1;
+                }
+                p {
+                    grid-row: 2;
                 }
             }
         }
