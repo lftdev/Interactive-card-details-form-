@@ -113,7 +113,6 @@ const validateExpYY = (event, input) => {
     input.classList.remove('invalid-input')
     invalid_inputs_p[p_index].classList.remove('invalid-input')
   }
-  
 }
 const validateCVC = (event, input) => {
   const target = event.target
@@ -171,4 +170,15 @@ inputs.forEach(input => {
 const form = document.getElementById('form-payment')
 form.addEventListener('submit', event => {
   event.preventDefault()
+  if ((VALID_INPUTS.CARDHOLDER != null) &&
+  (VALID_INPUTS.CARD_NUMBER != null) &&
+  (VALID_INPUTS.EXP_MM != null) &&
+  (VALID_INPUTS.EXP_YY != null) &&
+  (VALID_INPUTS.CVC != null)) {
+    document.querySelectorAll('body>section').forEach(section => {
+      section.classList.add('pass-form')
+    })
+  }
+  else
+    invalid_inputs_p[4].classList.add('invalid-input')
 })

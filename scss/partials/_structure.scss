@@ -25,6 +25,15 @@ input {
         cursor: pointer;
     }
 }
+button, input[type='submit'] {
+    background: $color3;
+    padding: 15px;
+    color: white;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    border-radius: 10px;
+}
 img {
     max-width: 100%;
 }

@@ -1,4 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap");
+@keyframes circle-in-hesitate {
+  0% {
+    clip-path: circle(0%);
+  }
+  40% {
+    clip-path: circle(40%);
+  }
+  100% {
+    clip-path: circle(125%);
+  }
+}
+[transition-style="in:circle:hesitate"] {
+  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-hesitate both;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +46,16 @@ input [type=submit]:hover {
   cursor: pointer;
 }
 
+button, input[type=submit] {
+  background: hsl(278, 68%, 11%);
+  padding: 15px;
+  color: white;
+  border: none;
+  font-family: inherit;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
 img {
   max-width: 100%;
 }
@@ -50,11 +75,12 @@ footer.flex-container {
   background: url(../images/bg-main-mobile.png) center center no-repeat;
   background-size: cover;
   height: 240px;
+  width: 100%;
 }
 .banner.flex-container {
   justify-content: flex-end;
 }
-.banner + section {
+.banner + .section-form {
   margin-top: 60px;
   padding: 30px;
 }
@@ -120,11 +146,13 @@ section.section-form.flex-container {
   justify-content: flex-start;
   align-items: center;
 }
+section.section-form.pass-form {
+  display: none;
+}
 section.section-form form {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  max-width: 400px;
 }
 section.section-form form label {
   font-weight: 500;
@@ -145,13 +173,6 @@ section.section-form form input.input-field:focus {
 }
 section.section-form form input.input-field.invalid-input {
   border: 2px solid hsl(0, 100%, 66%);
-}
-section.section-form form input[type=submit] {
-  background: hsl(278, 68%, 11%);
-  padding: 15px;
-  color: white;
-  border: none;
-  font-weight: bold;
 }
 section.section-form form p {
   display: none;
@@ -185,8 +206,28 @@ section.section-form form .form-row:nth-of-type(3) input {
 section.section-form form .form-row:nth-of-type(3) p {
   grid-row: 2;
 }
-section.section-completed-form-state {
+section.section-passed-form {
   display: none;
+}
+section.section-passed-form.pass-form {
+  animation-name: circle-in-hesitate;
+  animation-duration: 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+section.section-passed-form div.flex-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+section.section-passed-form div img {
+  max-width: 50%;
+}
+section.section-passed-form div button {
+  width: 100%;
 }
 
 @media (min-height: 600) {

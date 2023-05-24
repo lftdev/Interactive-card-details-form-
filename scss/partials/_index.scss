@@ -2,13 +2,13 @@
     background: url(../images/bg-main-mobile.png) center center no-repeat;
     background-size: cover;
     height: 240px;
+    width: 100%;
     &.flex-container {
         justify-content: flex-end;
     }
-    & + section {
+    & + .section-form {
         margin-top: 60px;
         padding: 30px;
-
     }
     .card {
         @include set-size(300px, 170px);
@@ -73,11 +73,13 @@ section {
             justify-content: flex-start;
             align-items: center;
         }
+        &.pass-form {
+            display: none;
+        }
         form {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
-            max-width: 400px;
             label {
                 font-weight: $bold-font;
             }
@@ -96,13 +98,6 @@ section {
                     &.invalid-input {
                         border: 2px solid $color4
                     }
-                }
-                &[type="submit"] {
-                    background: $color3;
-                    padding: 15px;
-                    color: white;
-                    border: none;
-                    font-weight: bold;
                 }
             }
             p {
@@ -139,7 +134,29 @@ section {
             }
         }
     }
-    &.section-completed-form-state {
+    &.section-passed-form {
         display: none;
+        &.pass-form {
+            animation-name: circle-in-hesitate;
+            animation-duration: 1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        div {
+            &.flex-container {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+            }
+            img {
+                max-width: 50%;
+            }
+            button {
+                width: 100%;
+            }
+        }
     }
 }
