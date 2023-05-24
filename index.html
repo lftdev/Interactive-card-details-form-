@@ -28,19 +28,25 @@
       <div class="form-row">
         <label for="cardholder-name">CARDHOLDER NAME</label>
         <input name="cardholder" class="input-field" placeholder="e.g. Jane Appleseed" id="cardholder-name" type="text">
+        <p>You must enter your real name.</p>
       </div>
       <div class="form-row">
         <label for="card-number">CARD NUMBER</label>
         <input name="card-number" class="input-field" placeholder="e.g. 1234 5678 9123 0000" id="card-number" type="number">
+        <p>The card number you entered is not valid.</p>
       </div>
       <div class="form-row">
-        <label for="exp-month">EXP. DATE (MM/YY)</label>
         <fieldset class="flex-container">
+          <legend>EXP. DATE (MM/YY)</legend>
           <input name="exp-month" class="input-field" placeholder="MM" id="exp-month" type="number">
           <input name="exp-year" class="input-field" placeholder="YY" id="exp-year" type="number">
         </fieldset>
-        <label for="card-cvc">CVC</label>
-        <input name="card-cvc" class="input-field" placeholder="e.g. 123" id="card-cvc" type="number">
+        <p>The date is not correct.</p>
+        <div>
+          <label for="card-cvc">CVC</label>
+          <input name="card-cvc" class="input-field" placeholder="e.g. 123" id="card-cvc" type="number">
+        </div>
+        <p>The CVC is invalid.</p>
       </div>
       <div class="form-row">
         <input type="submit" value="Confirm">
