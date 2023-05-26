@@ -4,24 +4,23 @@ const card_number_text = document.querySelector("div.card-number")
 const card_exp_text = document.querySelector("span.card-exp")
 const card_cvc_text = document.querySelector("span.card-cvc")
 
-const refreshCardHolder = event => cardholder_text.innerHTML = event.target.value
-const refreshCardNumber = event => {
-  const value = event.target.value
+function onInputEvent(event, callback) {
+  let value = event.target.value
+  callback(value)
+}
+const refreshCardholder = value => cardholder_text.innerHTML = value
+const refreshCardNumber = value => {
   if (value.length <= 16) card_number_text.innerHTML = value.replace(/(\d{4})/g, "$1 ")
 }
-const refreshExpDate = (event, input) => {
-  const target = event.target
+const refreshExpDate = (value, input) => {
   const text = card_exp_text.innerHTML
-  let value = target.value
   let length = value.length
   if (length != 2 && length != 0) value = value.replace(/^(\d).*$/, "0$1")
   else if (length == 0) value = "00"
   if (input.name === "exp-month") card_exp_text.innerHTML = text.replace(/(\d{2}\/)/, value + "/")
   else card_exp_text.innerHTML = text.replace(/(\/\d{2})/, "/" + value)
 }
-
-const refreshCVC = (event) => {
-  const value = event.target.value
+const refreshCVC = value => {
   if (value.length <= 4) card_cvc_text.innerHTML = value
 }
 // /REFRESH GRAPHICS
@@ -41,12 +40,6 @@ const VALID_INPUTS = {
   CVC: null,
 }
 const invalid_inputs_p = document.querySelectorAll("form p")
-
-function requestValidation(event, callback) {
-  const target = event.target
-  const value = target.value
-  callback(target, value)
-}
 
 const validateCardholder = (value, input) => {
   const p_index = 0
@@ -117,51 +110,50 @@ const validateCVC = (value, input) => {
 // /VALIDATE USER INPUT
 const inputs = document.querySelectorAll("form .input-field")
 inputs.forEach((input) => {
-  let p_index
   switch (input.name) {
     case "cardholder":
-      input.addEventListener("input", (event) => {
-        refreshCardHolder(event)
-        requestValidation(event, (_, value) => {
-          validateCardholder(value, input, p_index)
+      input.addEventListener("input", event => {
+        onInputEvent(event, value => {
+          refreshCardholder(value)
+          validateCardholder(value, input)
         })
       })
       break
     case "card-number":
-      input.addEventListener("input", (event) => {
-        refreshCardNumber(event)
-        requestValidation(event, (_, value) => {
-          validateCardNumber(value, input, p_index)
+      input.addEventListener("input", event => {
+        onInputEvent(event, value => {
+          refreshCardNumber(value)
+          validateCardNumber(value, input)
         })
       })
       break
     case "exp-month":
-      input.addEventListener("input", (event) => {
-        refreshExpDate(event, input)
-        requestValidation(event, (_, value) => {
-          validateExpMM(value, input, p_index)
+      input.addEventListener("input", event => {
+        onInputEvent(event, value => {
+          refreshExpDate(value, input)
+          validateExpMM(value, input)
         })
       })
       break
     case "exp-year":
-      input.addEventListener("input", (event) => {
-        refreshExpDate(event, input)
-        requestValidation(event, (_, value) => {
-          validateExpYY(value, input, p_index)
+      input.addEventListener("input", event => {
+        onInputEvent(event, value => {
+          refreshExpDate(value, input)
+          validateExpYY(value, input)
         })
       })
       break
     case "card-cvc":
-      input.addEventListener("input", (event) => {
-        refreshCVC(event, input)
-        requestValidation(event, (_, value) => {
-          validateCVC(value, input, p_index)
+      input.addEventListener("input", event => {
+        onInputEvent(event, value => {
+          refreshCVC(value, input)
+          validateCVC(value, input)
         })
       })
   }
 })
 const form = document.getElementById("form-payment")
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", event => {
   event.preventDefault()
   if (VALID_INPUTS.CARDHOLDER != null && VALID_INPUTS.CARD_NUMBER != null && VALID_INPUTS.EXP_MM != null && VALID_INPUTS.EXP_YY != null && VALID_INPUTS.CVC != null) {
     document.querySelectorAll("body>section").forEach((section) => {
