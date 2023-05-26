@@ -50,12 +50,10 @@ const VALID_INPUTS = {
 }
 const invalid_inputs_p = document.querySelectorAll("form p")
 
-function validateWithRegExp(value, regex, validInputs) {
-  if (value.match(regex) !== null) {
-    validInputs = value
-    return true
-  }
-  return false
+function validateWithRegExp(value, regex) {
+  if (value.match(regex) !== null)
+    return value
+  return null
 }
 function validateExpMM(value) {
   value = parseInt(value)
@@ -86,7 +84,8 @@ inputs.forEach((input) => {
       input.addEventListener("input", event => {
         onInputEvent(event, value => {
           refreshCardholder(value)
-          setValidInput(validateWithRegExp(value, REGEX.CARDHOLDER, VALID_INPUTS.CARDHOLDER), input, 0)
+          VALID_INPUTS.CARDHOLDER = validateWithRegExp(value, REGEX.CARDHOLDER)
+          setValidInput((VALID_INPUTS.CARDHOLDER != null), input, 0)
         })
       })
       break
@@ -94,7 +93,8 @@ inputs.forEach((input) => {
       input.addEventListener("input", event => {
         onInputEvent(event, value => {
           refreshCardNumber(value)
-          setValidInput(validateWithRegExp(value, REGEX.CARD_NUMBER, VALID_INPUTS.CARD_NUMBER), input, 1)
+          VALID_INPUTS.CARD_NUMBER = validateWithRegExp(value, REGEX.CARD_NUMBER)
+          setValidInput((VALID_INPUTS.CARD_NUMBER != null), input, 1)
         })
       })
       break
@@ -118,7 +118,8 @@ inputs.forEach((input) => {
       input.addEventListener("input", event => {
         onInputEvent(event, value => {
           refreshCVC(value, input)
-          setValidInput(validateWithRegExp(value, REGEX.CVC, VALID_INPUTS.CVC), input, 3)
+          VALID_INPUTS.CVC = validateWithRegExp(value, REGEX.CVC)
+          setValidInput((VALID_INPUTS.CVC != null), input, 3)
         })
       })
   }
