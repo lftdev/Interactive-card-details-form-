@@ -28,7 +28,7 @@ Users should be able to:
 ### Links
 
 - [Go to solution](https://www.frontendmentor.io/solutions/interactive-card-solution-Mi76rBFe02)
-- [Go to live site](https://hydrae-soft.github.io/Interactive-card-details-form-/)
+- [Go to live site](https://lftdev.github.io/Interactive-card-details-form-/)
 
 ## My process
 
@@ -50,5 +50,5 @@ Users should be able to:
 ## Author
 
 - Frontend Mentor - [@Ludroid](https://www.frontendmentor.io/profile/Ludroid)
-- Linkedin profile: [Lucas Franco Torres](https://www.linkedin.com/in/lucas-franco-torres-front-dev/)
-- GitHub profile: [hydrae-soft](https://github.com/hydrae-soft)
+- Linkedin profile: [Lucas Franco Torres](https://www.linkedin.com/in/frontenddev-lucastorres/)
+- GitHub profile: [hydrae-soft](https://github.com/lftdev)
