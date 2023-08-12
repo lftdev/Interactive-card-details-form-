@@ -49,6 +49,5 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor -
-- Linkedin profile: [Lucas Franco Torres](https://www.linkedin.com/in/frontenddev-lucastorres/)
+- Linkedin profile: [Lucas Franco Torres](https://www.linkedin.com/in/frontdev-lucastorres)
 - GitHub profile: [lftdev](https://github.com/lftdev)
