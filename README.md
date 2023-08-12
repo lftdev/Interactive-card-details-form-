@@ -49,6 +49,6 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor - [@Ludroid](https://www.frontendmentor.io/profile/Ludroid)
+- Frontend Mentor -
 - Linkedin profile: [Lucas Franco Torres](https://www.linkedin.com/in/frontenddev-lucastorres/)
-- GitHub profile: [hydrae-soft](https://github.com/lftdev)
+- GitHub profile: [lftdev](https://github.com/lftdev)
